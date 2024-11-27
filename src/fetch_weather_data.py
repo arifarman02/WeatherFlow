@@ -50,4 +50,7 @@ def insert_weather_data(city, temperature, description):
 if __name__ == "__main__":
     city = "London"
     weather_data = get_weather(city)
-    print(weather_data)
+    if weather_data:
+        temperature = weather_data["main"]["temp"]
+        description = weather_data["weather"][0]["description"]
+        insert_weather_data(city, temperature, description)
