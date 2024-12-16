@@ -47,10 +47,12 @@ def insert_weather_data(city, temperature, description):
     except psycopg2.Error as e:
         print(f"Database error: {e}")
 
+# Cities
 if __name__ == "__main__":
-    city = "London"
-    weather_data = get_weather(city)
-    if weather_data:
-        temperature = weather_data["main"]["temp"]
-        description = weather_data["weather"][0]["description"]
-        insert_weather_data(city, temperature, description)
+    cites = ["London", "Paris", "Rome", "Athens"]
+    for city in cites:
+        weather_data = get_weather(city)
+        if weather_data:
+            temperature = weather_data["main"]["temp"]
+            description = weather_data["weather"][0]["description"]
+            insert_weather_data(city, temperature, description)
